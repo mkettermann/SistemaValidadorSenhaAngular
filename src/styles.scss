@@ -1,0 +1,105 @@
+/* Global Styles */
+:root{
+	/** System Colors */
+	--sys-hue-cor: 260;
+	--sys-hue-noturno-cor: 210;
+
+	--sys-primary: hsl(var(--sys-hue-cor), 100%, 60%);
+	--sys-on-primary: hsl(0, 0%, 95%);
+	--sys-primary-15: hsl(var(--sys-hue-cor), 100%, 50%, 0.15);
+	--sys-error: hsl(4, 77%, 59%);
+	--sys-on-error: hsl(0, 0%, 95%);
+	--sys-error-15: hsl(4, 77%, 59%, 0.15);
+	--sys-success: hsl(120, 53%, 56%);
+	--sys-on-success: hsl(0, 0%, 5%);
+	--sys-success-15: hsl(120, 53%, 56%, 0.15);
+
+	/* Configurações padronizadas */
+	font-size: 16px;
+	--sys-gap: 1rem;
+	--sys-border-radius: 8px;
+	--sys-transition: 0.3s ease;
+
+}
+
+/* Variáveis de tema (Variam com o indicador de claro/escuro) */
+html.light-theme {
+	color-scheme: light;
+	--sys-background: hsl(var(--sys-hue-noturno-cor), 50%, 100%);
+	--sys-on-background: hsl(var(--sys-hue-noturno-cor), 50%, 10%);
+	--sys-outline: hsl(var(--sys-hue-noturno-cor), 40%, 92%);
+	--sys-on-outline: hsl(var(--sys-hue-noturno-cor), 40%, 17%);
+	--sys-outline-15: hsl(var(--sys-hue-noturno-cor), 40%, 92%, 0.15);
+}
+
+html.dark-theme {
+	color-scheme: dark;
+	--sys-background: hsl(var(--sys-hue-noturno-cor), 50%, 12%);
+	--sys-on-background: hsl(var(--sys-hue-noturno-cor), 50%, 100%);
+	--sys-outline: hsl(var(--sys-hue-noturno-cor), 30%, 20%);
+	--sys-on-outline: hsl(var(--sys-hue-noturno-cor), 50%, 100%);
+	--sys-outline-15: hsl(var(--sys-hue-noturno-cor), 30%, 20%, 0.15);
+}
+
+/* Exibição padrão de elementos básicos */
+body{
+	caret-color: var(--sys-primary);
+}
+
+input {
+	width: 100%;
+	accent-color: var(--sys-primary);
+}
+
+input,
+select,
+button,
+.description {
+	padding: 0.55rem;
+	border-radius: 8px;
+	height: 41px;
+}
+input,
+select{
+	border: 1px solid var(--sys-outline);
+}
+
+select:focus,
+input:focus{
+	border-color: var(--sys-primary);
+}
+
+button {
+	cursor: pointer;
+	background: var(--sys-primary);
+	color: var(--sys-on-primary);
+	border: none;
+	font-weight: 600;
+}
+
+button:disabled {
+	cursor: not-allowed;
+	filter: grayscale(100%);
+	opacity: 0.7;
+}
+
+button:focus {
+	outline: 2px solid var(--sys-primary);
+	outline-offset: 2px;
+}
+
+label {
+	display: flex;
+	flex-direction: column;
+}
+
+/* Classes padrões da arquitetura BEM */
+.flex-1{
+	flex: 1;
+}
+.color-error{
+	color: var(--sys-error);
+}
+.color-success{
+	color: var(--sys-success);
+}

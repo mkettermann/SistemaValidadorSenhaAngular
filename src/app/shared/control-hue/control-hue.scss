@@ -1,0 +1,17 @@
+:host{
+	display: block;
+	min-width: 45px;
+}
+
+input {
+	outline: none;
+	border: none;
+}
+
+div {
+	outline: 1px solid var(--sys-primary-15);
+	border-radius: 8px;
+}
+div i {
+	color: var(--sys-primary);
+}

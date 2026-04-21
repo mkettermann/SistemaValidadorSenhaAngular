@@ -1,0 +1,49 @@
+<h2 class="titulo-validacao">Valide sua Senha</h2>
+
+<form (submit)="onSubmit($event)" class="form-responsive-fields">
+	<label for="field-input-name">
+		<span class="field-title">Nome</span>
+		<input id="field-input-name" type="text" [formField]="validationForm.name" />
+	</label>
+	<label for="field-input-email">
+		<span class="field-title">Email</span>
+		<input id="field-input-email" type="email" [formField]="validationForm.email" />
+	</label>
+	<label for="field-input-password">
+		<span class="field-title">Senha</span>
+		<input id="field-input-password" type="number" [formField]="validationForm.password" />
+	</label>
+	<div class="form-validation-container" [class.invalid]="validationForm().invalid()">
+		@if(validationForm.password().touched()){
+		@if (validationForm.password().invalid()) {
+		Senha inválida
+		<ul>
+			@for (error of validationForm.password().errors(); track $index) {
+			<li>
+				<i class="bi bi-exclamation-circle"></i>
+				{{ error.message }}
+			</li>
+			}
+		</ul>
+		} @else {
+		Senha válida!
+		}
+		}
+	</div>
+	<div class="form-submit-container">
+		@if(isResultSucess() === false) {
+		<p class="color-error">Falha ao enviar resultado. Tente novamente.</p>
+		}@else if(isResultSucess() === true) {
+		<p class="color-success">Resultado enviado com sucesso!</p>
+		}
+		<button type="submit" [disabled]="validationForm().invalid() || isSubmitting()">
+			@if(isSubmitting()) {
+			<i class="bi bi-arrow-clockwise form-infinite-spin"></i>
+			Enviando...
+			}@else {
+			<i class="bi bi-send"></i>
+			Enviar
+			}
+		</button>
+	</div>
+</form>

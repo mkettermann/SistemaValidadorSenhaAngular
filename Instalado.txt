@@ -1,0 +1,18 @@
+Este arquivo foi criado para ir anotando as bibliotecas instaladas ao longo do desenvolvimento.
+
+0.1 Aberto o Github e clonar via https do projeto:
+git clone https://mkettermann@github.com/mkettermann/SistemaValidadorSenhaAngular.git
+
+0.2 App em Angular e suas bibliotecas básicas.
+=> Requer Node.JS instalado para npm, ambiente com 24.11.1
+=> Requer Angular/Cli, ambiente configurado na 21.1.0
+ng new ValidationUsingAPI
+
+0.3 Biblioteca de ícones do bootstrap (Requer npm install no deploy)
+npm i bootstrap-icons
+
+0.4 Cypress. Precisou sincronizar o Core do Angular ao DevKit e o Zone
+npm i -D zone.js @angular/core @angular/common @angular/platform-browser-dynamic
+ng add @cypress/schematic --skip-confirmation
+npm i -D @angular-devkit/build-angular @angular/platform-browser-dynamic
+npm i cypress --g
